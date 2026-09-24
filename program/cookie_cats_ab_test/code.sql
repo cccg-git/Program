@@ -210,6 +210,7 @@ temp_z as(
         metric,
         (p1 - p2) / sqrt(p * (1 - p)*((1/n1) + (1/n2))) as z,
         (p1 - p2) as diff,
+        (p1 - p2) / p1 as relative,
         sqrt(
             p1 * (1 - p1) / n1
           + p2 * (1 - p2) / n2
@@ -225,6 +226,7 @@ temp_normal as(
         abs(z) as z,
         1.0 / (1.0 + 0.2316419 * abs(z)) AS x,
         diff,
+        relative,
         round(diff - 1.96 * se_diff, 4) as ci_lower_95,
         round(diff + 1.96 * se_diff, 4) as ci_upper_95
     from
@@ -236,6 +238,7 @@ param as (
         z,
         x,
         diff,
+        relative,
         ci_lower_95,
         ci_upper_95, 
         (0.319381530 * x
@@ -251,6 +254,7 @@ param as (
 select
     metric,
     diff,
+    relative,
     ci_lower_95,
     ci_upper_95,
     z AS z_abs,
