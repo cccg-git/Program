@@ -66,12 +66,14 @@ order by
 # 分组查看留存率
 select 
     version,
-    count(retention_1)/count(*) as retention_1_rate,
-    count(retention_7)/count(*) as retention_7_rate
+    sum(retention_1)/count(*) as retention_1_rate,
+    sum(retention_7)/count(*) as retention_7_rate
 from 
     cookie_cats
+group by 
+    version
 order by
-    cookie_cats;
+    version;
     
 # 分组查看游戏局数
 with temp1 as(
