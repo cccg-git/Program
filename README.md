@@ -10,9 +10,26 @@
 
 ## 项目结构
 
-- `program/code.ipynb`：python数据预处理，数据探索，可视化，数据分析代码  
-- `program/conclusions.md`：最终结论和简单业务建议
+- `code.ipynb`：python数据预处理，数据探索，可视化，数据分析代码  
+- `conclusions.md`：最终结论和简单业务建议
 
 ## 技术栈
 
 Python / pandas / numpy / matplotlib / seaborn
+
+# cookie_cats手游关卡门槛调整ab测试
+
+## 项目背景
+
+这个项目旨在根据真实的cookie_cats游戏数据，在是否将第一个休息门槛从第30关推到第40关的问题上进行A/B测试，并给出最终结论
+
+## 数据源
+
+原始数据：https://www.kaggle.com/datasets/mursideyarkin/mobile-games-ab-testing-cookie-cats
+
+## 项目结构
+- `code.sql`：sql语言实现导入数据，预处理，数据分析，统计检验
+- `conclusions.md`：最终结果分析和结论
+
+## 技术栈
+sql
